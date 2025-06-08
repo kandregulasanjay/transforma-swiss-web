@@ -57,15 +57,12 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				maroon: {
-					50: '#fef2f2',
-					100: '#fee2e2',
-					500: '#ef4444',
-					600: '#dc2626',
-					700: '#b91c1c',
-					800: '#991b1b',
-					900: '#800000',
-					950: '#450a0a'
+				// Pulse Robot Template Colors
+				robot: {
+					primary: '#3DC1B1',
+					secondary: '#484848',
+					light: '#E8F8F6',
+					dark: '#2A2A2A'
 				}
 			},
 			borderRadius: {
@@ -129,6 +126,14 @@ export default {
 						opacity: '1',
 						transform: 'scale(1)'
 					}
+				},
+				'pulse-glow': {
+					'0%, 100%': {
+						boxShadow: '0 0 20px rgba(61, 193, 177, 0.3)'
+					},
+					'50%': {
+						boxShadow: '0 0 30px rgba(61, 193, 177, 0.6)'
+					}
 				}
 			},
 			animation: {
@@ -137,7 +142,8 @@ export default {
 				'fade-in': 'fade-in 0.6s ease-out',
 				'slide-in-left': 'slide-in-left 0.6s ease-out',
 				'slide-in-right': 'slide-in-right 0.6s ease-out',
-				'zoom-in': 'zoom-in 0.6s ease-out'
+				'zoom-in': 'zoom-in 0.6s ease-out',
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite'
 			}
 		}
 	},

@@ -99,41 +99,47 @@ const About = () => {
 
   return (
     <div className="min-h-screen pt-16">
-      {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-8 animate-fade-in">
+      {/* Hero Section - Pulse Robot Style */}
+      <section className="robot-section bg-gradient-to-br from-robot-light to-white">
+        <div className="robot-container text-center">
+          <h1 className="robot-text-large mb-8 animate-fade-in">
             <span className="text-gradient">{t.hero.title}</span>
           </h1>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
-            <Card className="p-8 animate-stagger-1">
-              <CardContent>
-                <h3 className="text-2xl font-bold mb-4 text-primary">{t.hero.mission}</h3>
-                <p className="text-gray-600 leading-relaxed">{t.hero.missionText}</p>
-              </CardContent>
-            </Card>
+          <div className="robot-grid mt-16">
+            <div className="md:col-span-1">
+              <div className="robot-card p-8 animate-stagger-1 animate-pulse-glow">
+                <div className="w-16 h-16 bg-primary rounded-full mx-auto mb-6 flex items-center justify-center">
+                  <span className="text-2xl">🎯</span>
+                </div>
+                <h3 className="robot-text-medium mb-4 text-primary">{t.hero.mission}</h3>
+                <p className="robot-text-body">{t.hero.missionText}</p>
+              </div>
+            </div>
             
-            <Card className="p-8 animate-stagger-2">
-              <CardContent>
-                <h3 className="text-2xl font-bold mb-4 text-primary">{t.hero.vision}</h3>
-                <p className="text-gray-600 leading-relaxed">{t.hero.visionText}</p>
-              </CardContent>
-            </Card>
+            <div className="md:col-span-1">
+              <div className="robot-card p-8 animate-stagger-2 animate-pulse-glow">
+                <div className="w-16 h-16 bg-secondary rounded-full mx-auto mb-6 flex items-center justify-center">
+                  <span className="text-2xl text-white">🚀</span>
+                </div>
+                <h3 className="robot-text-medium mb-4 text-secondary">{t.hero.vision}</h3>
+                <p className="robot-text-body">{t.hero.visionText}</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-center mb-16 animate-fade-in">
+      {/* Timeline - Enhanced Pulse Robot Style */}
+      <section className="robot-section bg-white">
+        <div className="robot-container">
+          <h2 className="robot-text-large text-center mb-16 animate-fade-in text-secondary">
             {t.timeline.title}
           </h2>
           
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-primary/20"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary to-secondary"></div>
             
             {t.timeline.milestones.map((milestone, index) => (
               <div
@@ -143,43 +149,47 @@ const About = () => {
                 } animate-stagger-${index + 1}`}
               >
                 <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
-                  <Card className="p-6">
-                    <CardContent>
-                      <div className="text-2xl font-bold text-primary mb-2">
-                        {milestone.year}
-                      </div>
-                      <h3 className="text-xl font-semibold mb-2">{milestone.title}</h3>
-                      <p className="text-gray-600">{milestone.description}</p>
-                    </CardContent>
-                  </Card>
+                  <div className="robot-card p-6 border-l-4 border-primary">
+                    <div className="text-3xl font-bold text-primary mb-2">
+                      {milestone.year}
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2 text-secondary">{milestone.title}</h3>
+                    <p className="robot-text-body">{milestone.description}</p>
+                  </div>
                 </div>
                 
                 {/* Timeline dot */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-lg"></div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-primary rounded-full border-4 border-white shadow-xl animate-pulse-glow"></div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Dubai Innovation */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <div className="max-w-7xl mx-auto">
+      {/* Dubai Innovation - Pulse Robot Style */}
+      <section className="robot-section bg-gradient-to-br from-secondary/10 to-white">
+        <div className="robot-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-slide-in-left">
-              <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+              <h2 className="robot-text-large mb-6 text-secondary">
                 {t.innovation.title}
               </h2>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="robot-text-body mb-8">
                 {t.innovation.description}
               </p>
+              <button className="robot-button">
+                {language === 'en' ? 'Learn More' : 'اعرف المزيد'}
+              </button>
             </div>
             <div className="animate-slide-in-right">
-              <img
-                src="https://images.unsplash.com/photo-1493397212122-2b85dda8106b?w=600&h=400&fit=crop"
-                alt="Dubai Innovation"
-                className="rounded-2xl shadow-2xl w-full h-80 object-cover hover:scale-105 transition-transform duration-500"
-              />
+              <div className="relative">
+                <img
+                  src="https://images.unsplash.com/photo-1493397212122-2b85dda8106b?w=600&h=400&fit=crop"
+                  alt="Dubai Innovation"
+                  className="rounded-2xl shadow-2xl w-full h-80 object-cover hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-2xl"></div>
+              </div>
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Transforma Technologies Design System */
+/* Transforma Technologies Design System - Pulse Robot Template Style */
 
 @layer base {
   :root {
@@ -16,26 +16,26 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    --primary: 0 100% 25%;
+    --primary: 174 58% 48%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
+    --secondary: 0 0% 28%;
+    --secondary-foreground: 0 0% 98%;
 
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
 
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    --accent: 174 58% 48%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 0 100% 25%;
+    --ring: 174 58% 48%;
 
-    --radius: 1rem;
+    --radius: 0.5rem;
   }
 
   * {
@@ -74,11 +74,44 @@
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-primary to-maroon-700 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
   }
 
   .hero-gradient {
-    background: linear-gradient(135deg, rgba(128,0,0,0.05) 0%, rgba(255,255,255,1) 100%);
+    background: linear-gradient(135deg, rgba(61,193,177,0.1) 0%, rgba(255,255,255,1) 100%);
+  }
+
+  /* Pulse Robot Template Styles */
+  .robot-card {
+    @apply bg-white border border-gray-200 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105;
+  }
+
+  .robot-button {
+    @apply bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg;
+  }
+
+  .robot-section {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
+  }
+
+  .robot-container {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .robot-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+  }
+
+  .robot-text-large {
+    @apply text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight;
+  }
+
+  .robot-text-medium {
+    @apply text-xl sm:text-2xl lg:text-3xl font-semibold;
+  }
+
+  .robot-text-body {
+    @apply text-lg text-gray-600 leading-relaxed;
   }
 }
 
@@ -97,10 +130,10 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #800000;
+  background: #3DC1B1;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #600000;
+  background: #35a89a;
 }
