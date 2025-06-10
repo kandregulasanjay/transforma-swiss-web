@@ -1,9 +1,11 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Card, CardContent } from '../components/ui/card';
 import { Button } from '../components/ui/button';
+import robo from '/webp/robo.webp';
+import analytics from '/webp/analytics.webp';
+import automation from '/webp/automation.webp';
 
 const Services = () => {
   const { language } = useLanguage();
@@ -101,6 +103,8 @@ const Services = () => {
 
   const t = translations[language];
 
+  const serviceIcons = [robo, analytics, automation];
+
   return (
     <div className="min-h-screen pt-16">
       {/* Hero Section */}
@@ -126,8 +130,12 @@ const Services = () => {
               >
                 <CardContent>
                   {/* Service Icon */}
-                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
-                    <div className="w-8 h-8 bg-primary rounded-lg"></div>
+                  <div className="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mb-6">
+                    <img
+                      src={serviceIcons[index]}
+                      alt={service.title}
+                      className="w-10 h-10 object-contain"
+                    />
                   </div>
                   
                   <h3 className="text-2xl font-bold mb-4">{service.title}</h3>

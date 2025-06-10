@@ -4,6 +4,9 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { Bot, BarChart3, Zap, Brain, MessageSquare, TrendingUp } from 'lucide-react';
 import bg from '/webp/Hero_section-bg.webp';
+import robo from '/webp/robo.webp';
+import analytics from '/webp/analytics.webp';
+import automation from '/webp/automation.webp';
 
 const Home = () => {
   const { language } = useLanguage();
@@ -171,6 +174,8 @@ const Home = () => {
 
   const t = translations[language];
 
+  const serviceIcons = [robo, analytics, automation];
+
   return (
     <div className="min-h-screen">
       {/* Hero Section with Gradient */}
@@ -206,23 +211,24 @@ const Home = () => {
             {t.whatWeDo.title}
           </h2>
           <div className="robot-grid">
-            {t.whatWeDo.services.map((service, index) => {
-              const IconComponent = service.icon;
-              return (
-                <Card key={index} className={`robot-card animate-stagger-${index + 1}`}>
-                  <CardContent className="text-center p-8">
-                    <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mx-auto mb-6 animate-pulse-glow">
-                      <IconComponent className="w-10 h-10 text-white" />
-                    </div>
-                    <h3 className="robot-text-medium mb-4 text-secondary">{service.title}</h3>
-                    <p className="robot-text-body mb-6">{service.description}</p>
-                    <Link to="/services" className="text-primary hover:text-primary/80 font-medium">
-                      {service.link} →
-                    </Link>
-                  </CardContent>
-                </Card>
-              );
-            })}
+            {t.whatWeDo.services.map((service, index) => (
+              <Card key={index} className={`robot-card animate-stagger-${index + 1}`}>
+                <CardContent className="text-center p-8">
+                  <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary/80 rounded-2xl flex items-center justify-center mx-auto mb-6 animate-pulse-glow">
+                    <img
+                      src={serviceIcons[index]}
+                      alt={service.title}
+                      className="w-10 h-10 object-contain"
+                    />
+                  </div>
+                  <h3 className="robot-text-medium mb-4 text-secondary">{service.title}</h3>
+                  <p className="robot-text-body mb-6">{service.description}</p>
+                  <Link to="/services" className="text-primary hover:text-primary/80 font-medium">
+                    {service.link} →
+                  </Link>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
