@@ -37,12 +37,11 @@ const Contact = () => {
         error: 'There was an error sending your message. Please try again.'
       },
       office: {
-        title: 'Dubai Office',
-        address: 'Dubai Internet City',
-        city: 'Dubai, UAE',
-        email: 'info@transforma.ae',
-        phone: '+971 4 123 4567',
-        hours: 'Sunday - Thursday: 9:00 AM - 6:00 PM'
+        title: 'Office',
+        address: 'Dubai Internet City9700 N 91st Street., suite A-115,Scottsdale AZ 85258',
+        email: 'it@transformatechnologies.com',
+        phone: 'T. 123-456-7890',
+        hours: 'Sunday - Friday: 9:00 AM - 6:00 PM'
       }
     },
     ar: {

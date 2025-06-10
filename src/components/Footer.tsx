@@ -10,9 +10,9 @@ const Footer = () => {
     en: {
       quickLinks: 'Quick Links',
       contactInfo: 'Contact Info',
-      email: 'info@transforma.ae',
-      phone: '+971 4 123 4567',
-      address: 'Dubai Internet City, Dubai, UAE',
+      email: 'E. it@transformatechnologies.com',
+      phone: 'T. 123-456-7890',
+      address: '9700 N 91st Street., suite A-115, Scottsdale AZ 85258',
       legal: 'Legal',
       privacy: 'Privacy Policy',
       terms: 'Terms of Service',
