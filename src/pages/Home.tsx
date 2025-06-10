@@ -3,7 +3,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { Bot, BarChart3, Zap, Brain, MessageSquare, TrendingUp } from 'lucide-react';
-import bg from '/webp/Hero_section-bg.webp'; 
+import bg from '/webp/Hero_section-bg.webp';
 
 const Home = () => {
   const { language } = useLanguage();
@@ -175,7 +175,7 @@ const Home = () => {
     <div className="min-h-screen">
       {/* Hero Section with Gradient */}
       <section
-        className="w-full min-h-screen flex flex-col justify-center items-center text-center relative"
+        className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden"
         style={{
           backgroundImage: `url(${bg})`,
           backgroundSize: 'cover',
@@ -184,11 +184,11 @@ const Home = () => {
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div className="relative z-10 flex flex-col items-center">
-          <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+        <div className="relative z-10 flex flex-col text-center">
+          <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
             {t.hero.title}
           </h1>
-          <p className="text-white text-lg sm:text-2xl mb-8 max-w-3xl">
+          <p className="text-white text-lg sm:text-2xl mb-8 max-w-4xl animate-stagger-1 text-center">
             {t.hero.subtitle}
           </p>
           <Link to="/product">
@@ -238,7 +238,7 @@ const Home = () => {
               {t.aiPowered.subtitle}
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
             <div className="animate-slide-in-left">
               <img
@@ -329,8 +329,8 @@ const Home = () => {
             {t.cta.subtitle}
           </p>
           <Link to="/contact">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="animate-stagger-2 bg-white text-primary hover:bg-gray-100 px-8 py-4 text-lg font-semibold"
             >
               {t.cta.button}
