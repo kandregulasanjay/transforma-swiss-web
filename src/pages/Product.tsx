@@ -213,7 +213,7 @@ const Product = () => {
           <Tabs defaultValue="support" className="animate-stagger-1">
             <TabsList className="grid w-full grid-cols-3 mb-8">
               {t.useCases.tabs.map((tab) => (
-                <TabsTrigger key={tab.id} value={tab.id} className="text-sm">
+                <TabsTrigger key={tab.id} value={tab.id} className="text-xs">
                   {tab.label}
                 </TabsTrigger>
               ))}

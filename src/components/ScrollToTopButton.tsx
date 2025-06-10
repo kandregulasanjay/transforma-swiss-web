@@ -19,7 +19,7 @@ const ScrollToTopButton = () => {
   return visible ? (
     <button
       onClick={handleClick}
-      className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-primary text-white shadow-lg hover:bg-primary/80 transition"
+      className="hidden md:block fixed bottom-8 right-5 z-50 p-3 rounded-full bg-primary text-white shadow-lg hover:bg-primary/80 transition"
       aria-label="Scroll to top"
     >
       <ArrowUp size={24} />

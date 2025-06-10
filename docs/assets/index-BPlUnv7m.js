@@ -1,0 +1,1 @@
+import{r as o,k as n,m as s}from"./index-BGrS2JYG.js";var u=s.useId||(()=>{}),c=0;function x(t){const[e,r]=o.useState(u());return n(()=>{t||r(a=>a??String(c++))},[t]),t||(e?`radix-${e}`:"")}var i=o.createContext(void 0);function v(t){const e=o.useContext(i);return t||e||"ltr"}export{x as a,v as u};

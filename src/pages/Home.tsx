@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Button } from '../components/ui/button';
@@ -176,6 +177,34 @@ const Home = () => {
 
   const serviceIcons = [robo, analytics, automation];
 
+  // Typewriter animation state
+  const [displayedTitle, setDisplayedTitle] = useState('');
+  const [titleIndex, setTitleIndex] = useState(0);
+
+  useEffect(() => {
+    const title = t.hero.title;
+    let timeout: NodeJS.Timeout;
+
+    if (titleIndex < title.length) {
+      timeout = setTimeout(() => {
+        setDisplayedTitle((prev) => prev + title[titleIndex]);
+        setTitleIndex((prev) => prev + 1);
+      }, 70); 
+    } else {
+      timeout = setTimeout(() => {
+        setDisplayedTitle('');
+        setTitleIndex(0);
+      }, 1500); 
+    }
+
+    return () => clearTimeout(timeout);
+  }, [titleIndex, t.hero.title]);
+
+  useEffect(() => {
+    setDisplayedTitle('');
+    setTitleIndex(0);
+  }, [t.hero.title]);
+
   return (
     <div className="min-h-screen">
       {/* Hero Section with Gradient */}
@@ -191,7 +220,8 @@ const Home = () => {
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         <div className="relative z-10 flex flex-col items-center text-center">
           <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
-            {t.hero.title}
+            {displayedTitle}
+            <span className="inline-block w-2 h-7 bg-white align-middle ml-1 animate-pulse" />
           </h1>
           <p className="text-white text-lg sm:text-2xl mb-8 max-w-4xl animate-stagger-1 text-center">
             {t.hero.subtitle}
