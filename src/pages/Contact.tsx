@@ -39,6 +39,7 @@ const Contact = () => {
       office: {
         title: 'Office',
         address: 'Dubai Internet City9700 N 91st Street., suite A-115,Scottsdale AZ 85258',
+        city: 'Dubai, United Arab Emirates',
         email: 'it@transformatechnologies.com',
         phone: 'T. 123-456-7890',
         hours: 'Sunday - Friday: 9:00 AM - 6:00 PM'
