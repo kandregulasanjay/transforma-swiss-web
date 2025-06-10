@@ -3,7 +3,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { Bot, BarChart3, Zap, Brain, MessageSquare, TrendingUp } from 'lucide-react';
-import bg from '/webp/hero-section.webp'; 
+import bg from '/webp/Hero_section-bg.webp'; 
 
 const Home = () => {
   const { language } = useLanguage();
@@ -16,7 +16,7 @@ const Home = () => {
         cta: 'Explore Our Platform'
       },
       whatWeDo: {
-        title: 'What We Do',
+        title: 'Our Services',
         services: [
           {
             title: 'Agentic Chatbot',
@@ -95,7 +95,7 @@ const Home = () => {
         cta: 'استكشف منصتنا'
       },
       whatWeDo: {
-        title: 'ما نقوم به',
+        title: 'خدماتنا',
         services: [
           {
             title: 'روبوت المحادثة الذكي',
@@ -175,25 +175,24 @@ const Home = () => {
     <div className="min-h-screen">
       {/* Hero Section with Gradient */}
       <section
-        className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+        className="w-full min-h-screen flex flex-col justify-center items-center text-center relative"
         style={{
           backgroundImage: `url(${bg})`,
           backgroundSize: 'cover',
-          // backgroundPosition: 'center',
-          // backgroundRepeat: 'no-repeat'
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
         }}
       >
-        {/* Light blue overlay for readability */}
-        <div className="absolute "></div>
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
-            <span className="text-gradient">{t.hero.title}</span>
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className="relative z-10 flex flex-col items-center">
+          <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+            {t.hero.title}
           </h1>
-          <p className="text-xl sm:text-2xl text-gray-900 mb-8 animate-stagger-1 max-w-3xl mx-auto">
+          <p className="text-white text-lg sm:text-2xl mb-8 max-w-3xl">
             {t.hero.subtitle}
           </p>
           <Link to="/product">
-            <Button size="lg" className="animate-stagger-2 robot-button text-lg">
+            <Button size="lg" className="rounded-full bg-[#3DC1B1] text-white px-8 py-3 text-lg font-semibold shadow hover:bg-[#34a99b] transition animate-stagger-2">
               {t.hero.cta}
             </Button>
           </Link>

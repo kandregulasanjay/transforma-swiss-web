@@ -3,13 +3,16 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Button } from './ui/button';
-import logo from '/webp/navbar_logo.webp'; 
+import navbarLogo from '/webp/navbar_logo.webp'; 
+import footerLogo from '/webp/footer-logo.webp'; 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { language, setLanguage, isRTL } = useLanguage();
   const location = useLocation();
+
+  const isHome = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,6 +61,9 @@ const Navbar = () => {
     setLanguage(language === 'en' ? 'ar' : 'en');
   };
 
+  const showTransparent = isHome && !scrolled;
+  const logoSrc = showTransparent ? footerLogo : navbarLogo;
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
@@ -67,7 +73,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img
-              src={logo}
+              src={logoSrc}
               alt="Transforma Logo"
               className="w-18 h-8 object-contain rounded-lg"
             />
@@ -80,7 +86,11 @@ const Navbar = () => {
                 key={link.href}
                 to={link.href}
                 className={`text-sm font-medium transition-colors hover:text-primary ${
-                  location.pathname === link.href ? 'text-primary' : 'text-gray-700'
+                  showTransparent
+                    ? 'text-white'
+                    : location.pathname === link.href
+                      ? 'text-primary'
+                      : 'text-gray-700'
                 }`}
               >
                 {link.label}
@@ -151,7 +161,11 @@ const Navbar = () => {
                   key={link.href}
                   to={link.href}
                   className={`block px-3 py-2 text-base font-medium transition-colors hover:text-primary ${
-                    location.pathname === link.href ? 'text-primary' : 'text-gray-700'
+                    showTransparent
+                      ? 'text-white'
+                      : location.pathname === link.href
+                        ? 'text-primary'
+                        : 'text-gray-700'
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
