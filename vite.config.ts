@@ -4,7 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: '/transforma-swiss-web/',
+  base: '/transforma-swiss-web',
   server: {
     host: "::",
     port: 8080,

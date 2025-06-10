@@ -7,14 +7,17 @@ import { LanguageProvider } from "./contexts/LanguageContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import StickyMobileCTA from "./components/StickyMobileCTA";
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Services from "./pages/Services";
-import Product from "./pages/Product";
-import Blogs from "./pages/Blogs";
-import Support from "./pages/Support";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
+import ScrollToTopButton from "./components/ScrollToTopButton";
+import React, { Suspense, lazy } from "react";
+
+const Home = lazy(() => import("./pages/Home"));
+const About = lazy(() => import("./pages/About"));
+const Services = lazy(() => import("./pages/Services"));
+const Product = lazy(() => import("./pages/Product"));
+const Blogs = lazy(() => import("./pages/Blogs"));
+const Support = lazy(() => import("./pages/Support"));
+const Contact = lazy(() => import("./pages/Contact"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
@@ -25,23 +28,26 @@ const App = () => (
         <div className="w-full">
           <Toaster />
           <Sonner />
-          <BrowserRouter basename= "/transforma-swiss-web">
+          <BrowserRouter basename="/transforma-swiss-web">
             <div className="min-h-screen flex flex-col">
               <Navbar />
               <main className="flex-1">
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/services" element={<Services />} />
-                  <Route path="/product" element={<Product />} />
-                  <Route path="/blogs" element={<Blogs />} />
-                  <Route path="/support" element={<Support />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
+                <Suspense fallback={<div className="w-full py-20 text-center text-xl">Loading...</div>}>
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/services" element={<Services />} />
+                    <Route path="/product" element={<Product />} />
+                    <Route path="/blogs" element={<Blogs />} />
+                    <Route path="/support" element={<Support />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </Suspense>
               </main>
               <Footer />
               <StickyMobileCTA />
+              <ScrollToTopButton />
             </div>
           </BrowserRouter>
         </div>
