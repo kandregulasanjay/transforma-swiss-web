@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -26,7 +25,7 @@ const App = () => (
         <div className="w-full">
           <Toaster />
           <Sonner />
-          <BrowserRouter>
+          <BrowserRouter basename={process.env.PUBLIC_URL || "/transforma-swiss-web"}>
             <div className="min-h-screen flex flex-col">
               <Navbar />
               <main className="flex-1">
