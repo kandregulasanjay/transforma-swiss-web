@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Card, CardContent } from '../components/ui/card';
@@ -7,6 +6,7 @@ import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import { Label } from '../components/ui/label';
 import { useToast } from '../hooks/use-toast';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const { language } = useLanguage();
@@ -77,7 +77,7 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Validation
     const errors = [];
     if (!formData.fullName.trim()) errors.push(t.form.nameRequired);
@@ -94,14 +94,35 @@ const Contact = () => {
       return;
     }
 
-    // Simulate form submission
-    toast({
-      title: "Success",
-      description: t.form.success,
-    });
-
-    // Reset form
-    setFormData({ fullName: '', email: '', phone: '', message: '' });
+    // EmailJS integration
+    emailjs
+      .send(
+        "service_p9vmsev", 
+        "template_4d9dmsa",
+        {
+          from_name: formData.fullName,
+          from_email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        },
+        "KG7Kt8pWmq3rHmzUw"
+      )
+      .then(
+        () => {
+          toast({
+            title: "Success",
+            description: t.form.success,
+          });
+          setFormData({ fullName: '', email: '', phone: '', message: '' });
+        },
+        () => {
+          toast({
+            title: "Error",
+            description: t.form.error,
+            variant: "destructive",
+          });
+        }
+      );
   };
 
   return (
