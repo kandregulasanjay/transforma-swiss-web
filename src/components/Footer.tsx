@@ -36,7 +36,7 @@ const Footer = () => {
   const t = translations[language];
 
   const quickLinks = [
-    { href: '/home', label: language === 'en' ? 'Home' : 'الرئيسية' },
+    { href: '/', label: language === 'en' ? 'Home' : 'الرئيسية' },
     { href: '/about', label: language === 'en' ? 'About Us' : 'معلومات عنا' },
     { href: '/services', label: language === 'en' ? 'Services' : 'الخدمات' },
     { href: '/contact', label: language === 'en' ? 'Contact' : 'اتصل بنا' },
