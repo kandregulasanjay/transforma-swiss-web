@@ -1,10 +1,9 @@
-
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { Bot, BarChart3, Zap, Brain, MessageSquare, TrendingUp } from 'lucide-react';
+import bg from '/webp/hero-section.webp'; 
 
 const Home = () => {
   const { language } = useLanguage();
@@ -175,13 +174,22 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section with Gradient */}
-      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary/10 via-white to-secondary/5 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent"></div>
+      <section
+        className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+        style={{
+          backgroundImage: `url(${bg})`,
+          backgroundSize: 'cover',
+          // backgroundPosition: 'center',
+          // backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* Light blue overlay for readability */}
+        <div className="absolute "></div>
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
             <span className="text-gradient">{t.hero.title}</span>
           </h1>
-          <p className="text-xl sm:text-2xl text-gray-600 mb-8 animate-stagger-1 max-w-3xl mx-auto">
+          <p className="text-xl sm:text-2xl text-gray-900 mb-8 animate-stagger-1 max-w-3xl mx-auto">
             {t.hero.subtitle}
           </p>
           <Link to="/product">
@@ -189,14 +197,6 @@ const Home = () => {
               {t.hero.cta}
             </Button>
           </Link>
-        </div>
-        {/* AI Circuit Background Pattern */}
-        <div className="absolute bottom-0 right-0 w-1/3 h-1/3 opacity-5">
-          <img 
-            src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop" 
-            alt="AI Circuit" 
-            className="w-full h-full object-cover"
-          />
         </div>
       </section>
 

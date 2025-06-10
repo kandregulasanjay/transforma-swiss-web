@@ -1,9 +1,9 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Button } from './ui/button';
+import logo from '/webp/navbar_logo.webp'; 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -66,10 +66,11 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">T</span>
-            </div>
-            <span className="text-xl font-bold text-primary">Transforma</span>
+            <img
+              src={logo}
+              alt="Transforma Logo"
+              className="w-18 h-8 object-contain rounded-lg"
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -86,26 +87,52 @@ const Navbar = () => {
               </Link>
             ))}
             
-            {/* Language Toggle */}
-            <Button
-              variant="outline"
-              size="sm"
+            {/* Custom Language Toggle */}
+            <button
               onClick={toggleLanguage}
-              className="ml-4"
+              className="ml-4 flex border border-primary rounded overflow-hidden h-8 w-20"
+              aria-label="Toggle language"
             >
-              {t.toggleLang}
-            </Button>
+              <span
+                className={`flex-1 flex items-center justify-center text-xs font-semibold transition-colors ${
+                  language === 'en' ? 'bg-primary text-white' : 'bg-white text-primary'
+                }`}
+              >
+                EN
+              </span>
+              <span
+                className={`flex-1 flex items-center justify-center text-xs font-semibold transition-colors ${
+                  language === 'ar' ? 'bg-primary text-white' : 'bg-white text-primary'
+                }`}
+              >
+                عربي
+              </span>
+            </button>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-4">
-            <Button
-              variant="outline"
-              size="sm"
+            {/* Custom Language Toggle */}
+            <button
               onClick={toggleLanguage}
+              className="flex border border-primary rounded overflow-hidden h-8 w-20"
+              aria-label="Toggle language"
             >
-              {t.toggleLang}
-            </Button>
+              <span
+                className={`flex-1 flex items-center justify-center text-xs font-semibold transition-colors ${
+                  language === 'en' ? 'bg-primary text-white' : 'bg-white text-primary'
+                }`}
+              >
+                EN
+              </span>
+              <span
+                className={`flex-1 flex items-center justify-center text-xs font-semibold transition-colors ${
+                  language === 'ar' ? 'bg-primary text-white' : 'bg-white text-primary'
+                }`}
+              >
+                عربي
+              </span>
+            </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-700 hover:text-primary"

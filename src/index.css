@@ -1,7 +1,25 @@
+@font-face {
+  font-family: 'Cera Pro';
+  src: url('/fonts/CeraPro-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Cera Pro';
+  src: url('/fonts/CeraPro-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Altissimo';
+  src: url('/fonts/Altissimo-Light.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
 
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
+ @tailwind components;
+ @tailwind utilities;
 
 /* Transforma Technologies Design System - Pulse Robot Template Style */
 
@@ -43,7 +61,8 @@
   }
 
   body {
-    @apply bg-background text-foreground font-inter;
+    @apply bg-background text-foreground;
+    font-family: 'Altissimo', sans-serif;
   }
 
   /* RTL Support */
@@ -115,6 +134,15 @@
   }
 }
 
+/* Add to your base styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cera Pro', sans-serif;
+}
+
+body, p, .robot-text-body {
+  font-family: 'Altissimo', sans-serif;
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
@@ -137,3 +165,4 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #35a89a;
 }
+

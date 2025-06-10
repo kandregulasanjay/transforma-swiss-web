@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
+import logo from '/webp/footer-logo.webp';
 
 const Footer = () => {
   const { language, setLanguage } = useLanguage();
@@ -16,7 +16,7 @@ const Footer = () => {
       legal: 'Legal',
       privacy: 'Privacy Policy',
       terms: 'Terms of Service',
-      rights: '© 2024 Transforma Technologies. All rights reserved.',
+      rights: '© 2025 Transforma Technologies. All rights reserved.',
       toggleLang: 'العربية'
     },
     ar: {
@@ -49,17 +49,12 @@ const Footer = () => {
           {/* Company Logo */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">T</span>
-              </div>
-              <span className="text-xl font-bold">Transforma</span>
-            </Link>
-            <p className="text-gray-400 text-sm">
-              {language === 'en' 
-                ? 'Transforming industries with AI innovation' 
-                : 'تحويل الصناعات بالابتكار في الذكاء الاصطناعي'
-              }
-            </p>
+              <img
+                src={logo}
+                alt="Transforma Logo"
+                className="w-60 h-32 object-contain rounded-lg"
+              />
+            </Link>            
           </div>
 
           {/* Quick Links */}
