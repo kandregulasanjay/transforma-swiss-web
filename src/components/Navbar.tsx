@@ -45,7 +45,7 @@ const Navbar = () => {
   const t = translations[language];
 
   const navLinks = [
-    { href: '/', label: t.home },
+    { href: '/home', label: t.home },
     { href: '/about', label: t.about },
     { href: '/services', label: t.services },
     { href: '/product', label: t.product },

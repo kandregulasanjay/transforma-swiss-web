@@ -25,12 +25,12 @@ const App = () => (
         <div className="w-full">
           <Toaster />
           <Sonner />
-          <BrowserRouter basename={process.env.PUBLIC_URL || "/transforma-swiss-web"}>
+          <BrowserRouter basename= "/transforma-swiss-web">
             <div className="min-h-screen flex flex-col">
               <Navbar />
               <main className="flex-1">
                 <Routes>
-                  <Route path="/" element={<Home />} />
+                  <Route path="/home" element={<Home />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/services" element={<Services />} />
                   <Route path="/product" element={<Product />} />
